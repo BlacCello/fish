@@ -20,7 +20,7 @@ end
 set GIT_DIR "$HOME/git"
 
 function repo
-  set repos (fd --type d --hidden ".git" "$GIT_DIR" | rg "$argv")
+  set repos (fd --type d --hidden '^\.git$' "$GIT_DIR" | rg "$argv")
   if test (count $repos) -eq 0
     echo "No repository with pattern '$argv' found" >&2
   else if test (count $repos) -eq 1
