@@ -3,7 +3,7 @@ abbr -a ga git add
 abbr -a gd git diff
 abbr -a gs git status
 abbr -a gb git switch
-abbr -a gm git switch main
+alias gm="git switch (basename (git symbolic-ref refs/remotes/origin/HEAD))"
 abbr -a gf git fetch --prune
 abbr -a gc git commit
 abbr -a gu git pull
@@ -29,6 +29,20 @@ function repo
     echo "Found multiple repos..."
     cd (dirname $repos | fzf)
   end
+end
+
+function gua
+  git fetch --all --prune
+  set branch (git rev-parse --abbrev-ref HEAD)
+  for remote in (git branch -r | grep -v '\->')
+    git switch (string trim (string replace 'origin/' '' $remote))
+  end
+  git switch "$branch"
+  git pull --all
+end
+
+function gbg
+  git grep "$argv" (git show-ref -s --heads)
 end
 
 alias gh='cd "$GIT_DIR"'
