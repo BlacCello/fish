@@ -36,9 +36,9 @@ function gua
   set branch (git rev-parse --abbrev-ref HEAD)
   for remote in (git branch -r | grep -v '\->')
     git switch (string trim (string replace 'origin/' '' $remote))
+    git pull
   end
   git switch "$branch"
-  git pull --all
 end
 
 function gbg
