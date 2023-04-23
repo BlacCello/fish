@@ -3,7 +3,6 @@ set PATH ~/bin $PATH
 set PATH ~/go/bin $PATH
 set PATH ~/.binenv $PATH
 set PATH /var/lib/snapd/snap/bin $PATH
-set PATH ~/.linuxbrew/bin $PATH
 
 function cat
   bat --paging never --decorations never $argv
