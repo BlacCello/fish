@@ -11,5 +11,4 @@ abbr -a ke kubectl edit
 abbr -a kc kubectx
 abbr -a kn kubens
 
-
 abbr -a kas kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml

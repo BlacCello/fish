@@ -17,8 +17,6 @@ function pr
   git diff (git symbolic-ref refs/remotes/origin/HEAD)...(git rev-parse --abbrev-ref HEAD)
 end
 
-set GIT_DIR "$HOME/git"
-
 function repo-scan
   fd --type d --hidden --no-ignore-vcs --prune '^\.git$' "$GIT_DIR" >"$GIT_DIR/.repos"
 end
@@ -49,4 +47,5 @@ function gbg
   git grep "$argv" (git show-ref -s --heads)
 end
 
+set GIT_DIR "$HOME/git"
 alias gh='cd "$GIT_DIR"'
