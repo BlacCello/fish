@@ -47,4 +47,4 @@ function gbg
   git grep "$argv" (git show-ref -s --heads)
 end
 
-alias gh='cd "$HOME/git"'
+alias gdir='cd "$HOME/git"'
